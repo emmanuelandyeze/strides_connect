@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<header className="App-header">
+				<h1>Strides Connect</h1>
+				<p>Build in progress</p>
+				<a
+					className="App-link"
+					href="https://stridesconnect.vercel.app"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Check previous build
+				</a>
+			</header>
+		</div>
+	);
 }
 
 export default App;
