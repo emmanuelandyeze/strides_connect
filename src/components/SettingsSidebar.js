@@ -140,13 +140,13 @@ const SidebarContent = ({
 				/>
 			</Flex>
 
-			<NavItem icon={FiHome} as={routerLink} to="/">
+			<NavItem icon={FiHome} as={routerLink} to="/app">
 				Home
 			</NavItem>
 			<NavItem
 				icon={BsPeople}
 				as={routerLink}
-				to="/community"
+				to="/app/community"
 			>
 				Community
 			</NavItem>
@@ -160,14 +160,14 @@ const SidebarContent = ({
 			<NavItem
 				icon={FaRegCalendarAlt}
 				as={routerLink}
-				to="/events"
+				to="/app/events"
 			>
 				Events
 			</NavItem>
 			<NavItem
 				icon={FiSettings}
 				as={routerLink}
-				to="/settings"
+				to="/app/settings"
 				fontWeight={'bolder'}
 				fontSize="lg"
 			>

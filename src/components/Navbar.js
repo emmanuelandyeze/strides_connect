@@ -16,6 +16,8 @@ import {
 	useColorMode,
 	Center,
 	Text,
+	Code,
+	VStack,
 } from '@chakra-ui/react';
 import {
 	MoonIcon,
@@ -27,6 +29,9 @@ import {
 	InputGroup,
 	InputLeftElement,
 } from '@chakra-ui/react';
+import { useAuth, useLogout } from 'hooks/auth';
+import { LOGIN } from 'lib/routes';
+import { Link as routerLink } from 'react-router-dom';
 
 const NavLink = ({ children }: { children: ReactNode }) => (
 	<Link
@@ -46,6 +51,9 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 export default function Nav() {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	const { logout, isLoading } = useLogout();
+	const { user, isLoading: authLoading } = useAuth();
+
 	return (
 		<>
 			<Box
@@ -97,42 +105,59 @@ export default function Nav() {
 								)}
 							</Button>
 
-							<Menu>
-								<MenuButton
-									as={Button}
-									rounded={'full'}
-									variant={'link'}
-									cursor={'pointer'}
-									minW={0}
-								>
-									<Avatar
-										size={'sm'}
-										src={
-											'https://media.licdn.com/dms/image/C4D03AQGuy72wZVoeWQ/profile-displayphoto-shrink_800_800/0/1657031882849?e=1685577600&v=beta&t=EoJLioRw09oYuXmM-RhbeKs-JG3z34jHTSVpzhEYBAY'
-										}
-									/>
-								</MenuButton>
-								<MenuList alignItems={'center'}>
-									<br />
-									<Center>
+							{!isLoading && !user ? (
+								<div></div>
+							) : (
+								<Menu>
+									<MenuButton
+										as={Button}
+										rounded={'full'}
+										variant={'link'}
+										cursor={'pointer'}
+										minW={0}
+									>
 										<Avatar
-											size={'2xl'}
-											src={
-												'https://avatars.dicebear.com/api/male/username.svg'
-											}
+											size={'sm'}
+											src={user?.avatar}
+											border="1px"
+											name={user.username}
 										/>
-									</Center>
-									<br />
-									<Center>
-										<p>Username</p>
-									</Center>
-									<br />
-									<MenuDivider />
-									<MenuItem>Your Servers</MenuItem>
-									<MenuItem>Account Settings</MenuItem>
-									<MenuItem>Logout</MenuItem>
-								</MenuList>
-							</Menu>
+									</MenuButton>
+									<MenuList alignItems={'center'}>
+										<br />
+										<Center>
+											<Avatar
+												name={user.username}
+												size={'2xl'}
+												src={user?.avatar}
+												border="1px"
+												_hover={{
+													cursor: 'pointer',
+													opacity: '0.8',
+												}}
+											/>
+										</Center>
+										<br />
+										<Center>
+											<VStack>
+												<Text>{user?.username}</Text>
+												<Code>{user?.tag}</Code>
+											</VStack>
+										</Center>
+										<br />
+										<MenuDivider />
+										<MenuItem>Your Profile</MenuItem>
+										<MenuItem>Account Settings</MenuItem>
+										<MenuItem
+											onClick={logout}
+											isLoading={isLoading}
+											color="red"
+										>
+											Logout
+										</MenuItem>
+									</MenuList>
+								</Menu>
+							)}
 						</Stack>
 					</Flex>
 				</Flex>

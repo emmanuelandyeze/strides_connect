@@ -28,22 +28,12 @@ import { FaRegCalendarAlt } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import { useColorMode } from '@chakra-ui/react';
+import { useAuth } from 'hooks/auth';
 
 interface LinkItemProps {
 	name: string;
 	icon: IconType;
 }
-const LinkItems: Array<LinkItemProps> = [
-	// { name: 'Home', icon: FiHome },
-	{ name: 'Community', icon: BsPeople, link: '/community' },
-	{ name: 'Explore', icon: FiCompass, link: '/explore' },
-	{
-		name: 'Events',
-		icon: FaRegCalendarAlt,
-		link: 'events',
-	},
-	{ name: 'Settings', icon: FiSettings, link: 'settings' },
-];
 
 export default function SimpleSidebar({
 	children,
@@ -93,6 +83,7 @@ const SidebarContent = ({
 	...rest
 }: SidebarProps) => {
 	const { colorMode, toggleColorMode } = useColorMode();
+	const { user, isLoading: authLoading } = useAuth();
 	return (
 		<Box
 			bg={useColorModeValue('white', 'gray.900')}
@@ -140,39 +131,83 @@ const SidebarContent = ({
 				/>
 			</Flex>
 
-			<NavItem icon={FiHome} as={routerLink} to="/">
-				Home
-			</NavItem>
-			<NavItem
-				icon={BsPeople}
-				as={routerLink}
-				to="/community"
-			>
-				Community
-			</NavItem>
-			<NavItem
-				icon={FiCompass}
-				as={routerLink}
-				to="/explore"
-				fontWeight={'bolder'}
-				fontSize="lg"
-			>
-				Explore
-			</NavItem>
-			<NavItem
-				icon={FaRegCalendarAlt}
-				as={routerLink}
-				to="/events"
-			>
-				Events
-			</NavItem>
-			<NavItem
-				icon={FiSettings}
-				as={routerLink}
-				to="/settings"
-			>
-				Settings
-			</NavItem>
+			{!authLoading && !user ? (
+				<>
+					<NavItem
+						icon={FiHome}
+						as={routerLink}
+						to="/login"
+					>
+						Home
+					</NavItem>
+					<NavItem
+						icon={BsPeople}
+						as={routerLink}
+						to="/login"
+					>
+						Community
+					</NavItem>
+					<NavItem
+						icon={FiCompass}
+						as={routerLink}
+						to="/explore"
+						fontWeight={'bolder'}
+						fontSize="lg"
+					>
+						Explore
+					</NavItem>
+					<NavItem
+						icon={FaRegCalendarAlt}
+						as={routerLink}
+						to="/login"
+					>
+						Events
+					</NavItem>
+					<NavItem
+						icon={FiSettings}
+						as={routerLink}
+						to="/login"
+					>
+						Settings
+					</NavItem>
+				</>
+			) : (
+				<>
+					<NavItem icon={FiHome} as={routerLink} to="/app">
+						Home
+					</NavItem>
+					<NavItem
+						icon={BsPeople}
+						as={routerLink}
+						to="/app/community"
+					>
+						Community
+					</NavItem>
+					<NavItem
+						icon={FiCompass}
+						as={routerLink}
+						to="/explore"
+						fontWeight={'bolder'}
+						fontSize="lg"
+					>
+						Explore
+					</NavItem>
+					<NavItem
+						icon={FaRegCalendarAlt}
+						as={routerLink}
+						to="/app/events"
+					>
+						Events
+					</NavItem>
+					<NavItem
+						icon={FiSettings}
+						as={routerLink}
+						to="/app/settings"
+					>
+						Settings
+					</NavItem>
+				</>
+			)}
 		</Box>
 	);
 };

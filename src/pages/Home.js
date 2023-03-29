@@ -1,7 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
-import React from 'react';
+import { useAuth } from 'hooks/auth';
+import { EVENTS } from 'lib/routes';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from '../components/Navbar';
 import SimpleSidebar from '../components/Sidebar';
 

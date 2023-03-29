@@ -142,7 +142,7 @@ const SidebarContent = ({
 			<NavItem
 				icon={FiHome}
 				as={routerLink}
-				to="/"
+				to="/app"
 				// backgroundColor={'gray.400'}
 				fontWeight={'bolder'}
 				fontSize="lg"
@@ -152,7 +152,7 @@ const SidebarContent = ({
 			<NavItem
 				icon={BsPeople}
 				as={routerLink}
-				to="/community"
+				to="/app/community"
 			>
 				Community
 			</NavItem>
@@ -166,14 +166,14 @@ const SidebarContent = ({
 			<NavItem
 				icon={FaRegCalendarAlt}
 				as={routerLink}
-				to="/events"
+				to="/app/events"
 			>
 				Events
 			</NavItem>
 			<NavItem
 				icon={FiSettings}
 				as={routerLink}
-				to="/settings"
+				to="/app/settings"
 			>
 				Settings
 			</NavItem>
