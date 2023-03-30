@@ -90,7 +90,8 @@ function Explore() {
 										'gray.900',
 									)}
 									rounded={'lg'}
-									p={6}
+									py={3}
+									px={1}
 									textAlign={'center'}
 								>
 									<Flex
@@ -167,7 +168,8 @@ function Explore() {
 										'gray.900',
 									)}
 									rounded={'lg'}
-									p={6}
+									py={3}
+									px={1}
 									textAlign={'center'}
 								>
 									<Flex
@@ -242,7 +244,8 @@ function Explore() {
 										'gray.900',
 									)}
 									rounded={'lg'}
-									p={6}
+									py={3}
+									px={1}
 									textAlign={'center'}
 								>
 									<Flex
