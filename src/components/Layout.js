@@ -6,7 +6,8 @@ import {
 	useLocation,
 	useNavigate,
 } from 'react-router-dom';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { BallTriangle } from 'react-loader-spinner';
 
 export default function Layout() {
 	const { pathname } = useLocation();
@@ -23,7 +24,30 @@ export default function Layout() {
 		}
 	}, [pathname, user, isLoading, navigate]);
 
-	if (!isLoading)
+	if (isLoading)
+		return (
+			<div
+				style={{
+					border: '1px solid #000',
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignItems: 'center',
+					height: '100vh',
+				}}
+			>
+				<BallTriangle
+					height={100}
+					width={100}
+					radius={5}
+					color="teal"
+					ariaLabel="ball-triangle-loading"
+					wrapperClass={{}}
+					wrapperStyle=""
+					visible={true}
+				/>
+			</div>
+		);
 		return (
 			<>
 				<Box w="full" bgColor={'white'}>

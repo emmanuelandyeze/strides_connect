@@ -15,8 +15,10 @@ import {
 import { MdOutlineExplore } from 'react-icons/md';
 import { BsPeople, BsPersonCircle } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { useAuth } from 'hooks/auth';
 
 export default function ProfileNav() {
+	const { user, isLoading: authLoading } = useAuth();
 	return (
 		<Card
 			maxWidth={'680px'}
@@ -37,47 +39,95 @@ export default function ProfileNav() {
 				bg={useColorModeValue('white', 'gray.900')}
 				w={{ base: '94%', md: '680px' }}
 			>
-				<Button
-					flex="1"
-					variant="ghost"
-					as={Link}
-					to="/app"
-				>
-					<BiHome size={30} />
-				</Button>
-				<Button
-					flex="1"
-					variant="ghost"
-					as={Link}
-					to="/app/community"
-				>
-					<BsPeople size={30} />
-				</Button>
-				<Button
-					flex="1"
-					variant="ghost"
-					as={Link}
-					to="/explore"
-				>
-					<MdOutlineExplore size={30} />
-				</Button>
-				<Button
-					flex="1"
-					variant="ghost"
-					as={Link}
-					to="/app/events"
-				>
-					<BiCalendarEvent size={30} />
-				</Button>
-				<Button
-					flex="1"
-					variant="ghost"
-					as={Link}
-					colorScheme={'teal'}
-					to="/profile/@the_transformer"
-				>
-					<BsPersonCircle size={30} />
-				</Button>
+				{!authLoading && !user ? (
+					<>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/login"
+						>
+							<BiHome size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/login"
+						>
+							<BsPeople size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/explore"
+						>
+							<MdOutlineExplore size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/login"
+						>
+							<BiCalendarEvent size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/login"
+							colorScheme={'teal'}
+						>
+							<BsPersonCircle size={30} />
+						</Button>
+					</>
+				) : (
+					<>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/app"
+						>
+							<BiHome size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/app/community"
+						>
+							<BsPeople size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/explore"
+						>
+							<MdOutlineExplore size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							to="/app/events"
+						>
+							<BiCalendarEvent size={30} />
+						</Button>
+						<Button
+							flex="1"
+							variant="ghost"
+							as={Link}
+							colorScheme={'teal'}
+							to="/profile/@the_transformer"
+						>
+							<BsPersonCircle size={30} />
+						</Button>
+					</>
+				)}
 			</CardFooter>
 		</Card>
 	);

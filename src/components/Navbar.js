@@ -68,6 +68,7 @@ export default function Nav() {
 				)}
 				pos="fixed"
 				w={{ base: 'full', md: '85%' }}
+				zIndex="1000"
 			>
 				<Flex
 					h={16}

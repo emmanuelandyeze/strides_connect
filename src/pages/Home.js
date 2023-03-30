@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from '../components/Navbar';
 import SimpleSidebar from '../components/Sidebar';
 import HomeNav from 'components/mobileNav/Home';
+import PostList from 'components/posts/PostList';
 
 function Home() {
 	return (
@@ -20,12 +21,16 @@ function Home() {
 					<Nav />
 					<Box
 						bg={useColorModeValue('white', 'gray.900')}
-						height="100vh"
-						pt="24"
+						// height="100vh"
+						py="24"
 						pr={{ base: '5', md: '10' }}
 						pl={{ base: '4', md: '10' }}
+						align={'center'}
 					>
-						<h1>Home page</h1>
+						<Box maxWidth="680px">
+							<PostList />
+						</Box>
+
 						<HomeNav />
 					</Box>
 				</div>
