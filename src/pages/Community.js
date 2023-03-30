@@ -1,4 +1,10 @@
-import { Flex, HStack, SimpleGrid } from '@chakra-ui/react';
+import {
+	Flex,
+	HStack,
+	SimpleGrid,
+	StackDivider,
+	VStack,
+} from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
@@ -30,8 +36,9 @@ function Community() {
 						pt="24"
 						pr={{ base: '5', md: '10' }}
 						pl={{ base: '4', md: '10' }}
+						align={'center'}
 					>
-						<h1>Community page</h1>
+						<h1>Suggested Communities</h1>
 					</Box>
 				</div>
 			</Flex>
