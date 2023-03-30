@@ -20,6 +20,7 @@ import {
 	Link,
 	Badge,
 } from '@chakra-ui/react';
+import CommunityNav from 'components/mobileNav/Community';
 
 function Community() {
 	return (
@@ -39,6 +40,7 @@ function Community() {
 						align={'center'}
 					>
 						<h1>Suggested Communities</h1>
+						<CommunityNav />
 					</Box>
 				</div>
 			</Flex>

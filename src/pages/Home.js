@@ -7,6 +7,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from '../components/Navbar';
 import SimpleSidebar from '../components/Sidebar';
+import HomeNav from 'components/mobileNav/Home';
 
 function Home() {
 	return (
@@ -25,6 +26,7 @@ function Home() {
 						pl={{ base: '4', md: '10' }}
 					>
 						<h1>Home page</h1>
+						<HomeNav />
 					</Box>
 				</div>
 			</Flex>

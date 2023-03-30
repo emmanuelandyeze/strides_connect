@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
 import { useColorModeValue } from '@chakra-ui/react';
+import EventsNav from 'components/mobileNav/Events';
 import React from 'react';
 import Nav from '../components/EventsNavbar';
 import SimpleSidebar from '../components/EventsSidebar';
@@ -21,6 +22,7 @@ function Events() {
 						pr={{ base: '5', md: '10' }}
 						pl={{ base: '4', md: '10' }}
 					>
+						<EventsNav />
 						<h1>Event page</h1>
 					</Box>
 				</div>

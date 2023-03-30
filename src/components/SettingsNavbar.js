@@ -68,6 +68,7 @@ export default function Nav() {
 				)}
 				pos="fixed"
 				w={{ base: 'full', md: '85%' }}
+				zIndex="1000"
 			>
 				<Flex
 					h={16}
@@ -76,7 +77,7 @@ export default function Nav() {
 				>
 					<Box>
 						<Text fontSize={'lg'} fontWeight="bold">
-							Settings
+							Profile
 						</Text>{' '}
 					</Box>
 
@@ -106,7 +107,9 @@ export default function Nav() {
 							</Button>
 
 							{!isLoading && !user ? (
-								<div></div>
+								<Button as={routerLink} to={LOGIN}>
+									Login
+								</Button>
 							) : (
 								<Menu>
 									<MenuButton

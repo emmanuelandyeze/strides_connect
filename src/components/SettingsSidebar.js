@@ -23,7 +23,7 @@ import {
 	FiMenu,
 } from 'react-icons/fi';
 import { Link as routerLink } from 'react-router-dom';
-import { BsPeople } from 'react-icons/bs';
+import { BsPeople, BsPersonCircle } from 'react-icons/bs';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
@@ -165,13 +165,13 @@ const SidebarContent = ({
 				Events
 			</NavItem>
 			<NavItem
-				icon={FiSettings}
+				icon={BsPersonCircle}
 				as={routerLink}
-				to="/app/settings"
+				to="/profile/@the_transformer"
 				fontWeight={'bolder'}
 				fontSize="lg"
 			>
-				Settings
+				Profile
 			</NavItem>
 		</Box>
 	);
