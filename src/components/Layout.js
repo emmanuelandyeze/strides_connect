@@ -50,7 +50,7 @@ export default function Layout() {
 		);
 		return (
 			<>
-				<Box w="full" bgColor={'white'}>
+				<Box w="full">
 					<Outlet />
 				</Box>
 			</>

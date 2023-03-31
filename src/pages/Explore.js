@@ -55,7 +55,7 @@ function Explore() {
 					<ExploreNav />
 					<Box
 						bg={useColorModeValue('white', 'gray.900')}
-						// height="100vh"
+						height="100vh"
 						pt="24"
 						pr={{ base: '5', md: '10' }}
 						pl={{ base: '4', md: '10' }}
